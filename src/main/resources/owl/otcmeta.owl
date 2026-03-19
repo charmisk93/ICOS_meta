@@ -283,6 +283,74 @@
     
 
 
+    <!-- http://meta.icos-cp.eu/ontologies/otcmeta/EDMO -->
+
+    <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/EDMO">
+        <owl:equivalentProperty rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/RoR"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/atOrganization"/>
+                <owl:someValuesFrom rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Organization"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/hasResponsibleOrg"/>
+                <owl:someValuesFrom rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/AcademicInstitution"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/hasResponsibleOrg"/>
+                <owl:someValuesFrom rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/CommercialCompany"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/hasResponsibleOrg"/>
+                <owl:someValuesFrom rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Funder"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <owl:propertyDisjointWith rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/hasStationId"/>
+        <rdfs:comment>European Directory of Marine Organisations (EDMO) code for the organization</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://meta.icos-cp.eu/ontologies/otcmeta/RoR -->
+
+    <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/RoR">
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/atOrganization"/>
+                <owl:someValuesFrom rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/AcademicInstitution"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/atOrganization"/>
+                <owl:someValuesFrom rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/CommercialCompany"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/atOrganization"/>
+                <owl:someValuesFrom rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Funder"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/hasResponsibleOrg"/>
+                <owl:someValuesFrom rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Organization"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <owl:propertyDisjointWith rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/hasStationId"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">Research Organization Registry (RoR) code for organization name</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://meta.icos-cp.eu/ontologies/otcmeta/airIntakePosition -->
 
     <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/airIntakePosition">
