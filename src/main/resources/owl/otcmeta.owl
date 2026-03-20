@@ -325,7 +325,6 @@
     <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/alternative_station_ID">
         <rdfs:subPropertyOf rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/hasStationId"/>
         <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Station"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <rdfs:comment>WMO/WIGOS, OceanSITES and/or EDIOS</rdfs:comment>
     </owl:DatatypeProperty>
