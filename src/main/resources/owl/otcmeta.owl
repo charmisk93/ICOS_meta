@@ -312,6 +312,7 @@
                 <owl:someValuesFrom rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Funder"/>
             </owl:Restriction>
         </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <owl:propertyDisjointWith rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/hasStationId"/>
         <rdfs:comment>European Directory of Marine Organisations (EDMO) code for the organization</rdfs:comment>
     </owl:DatatypeProperty>
@@ -345,6 +346,7 @@
                 <owl:someValuesFrom rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Organization"/>
             </owl:Restriction>
         </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <owl:propertyDisjointWith rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/hasStationId"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">Research Organization Registry (RoR) code for organization name</rdfs:comment>
     </owl:DatatypeProperty>
