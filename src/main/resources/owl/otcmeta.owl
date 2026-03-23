@@ -287,8 +287,9 @@
 
     <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/EDIOS_ID">
         <rdfs:subPropertyOf rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/hasStationId"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>European Directory of the Initial Ocean-Observing Systems (EDIOS) ID  https://www.seadatanet.org/Metadata/EDIOS-Observing-systems</rdfs:comment>
+        <rdfs:label>EDIOS ID</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -298,6 +299,7 @@
     <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/EDMO">
         <owl:equivalentProperty rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/RoR"/>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/AssumedRole"/>
         <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Organization"/>
         <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Station"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
@@ -312,6 +314,7 @@
     <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/OceanSITES_ID">
         <rdfs:subPropertyOf rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/hasStationId"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>OceanSITES ID</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -319,6 +322,7 @@
     <!-- http://meta.icos-cp.eu/ontologies/otcmeta/RoR -->
 
     <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/RoR">
+        <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/AssumedRole"/>
         <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Organization"/>
         <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Station"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
@@ -333,6 +337,7 @@
     <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/WIGOS_ID">
         <rdfs:subPropertyOf rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/hasStationId"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>WIGOS ID</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -399,7 +404,7 @@
                 </owl:withRestrictions>
             </rdfs:Datatype>
         </rdfs:range>
-        <rdfs:comment>country code  ISO_3116 or C32</rdfs:comment>
+        <rdfs:comment>country code from ISO_3116</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -1035,6 +1040,17 @@
     <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/polygon_GeoJSON">
         <rdfs:subPropertyOf rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/hasStationId"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label>polygon GeoJSON</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://meta.icos-cp.eu/ontologies/otcmeta/project_ID -->
+
+    <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/project_ID">
+        <rdfs:subPropertyOf rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/fundingInfoProp"/>
+        <rdfs:comment>European Directory of Marine Environmental Research Projects (EDMERP)</rdfs:comment>
+        <rdfs:label>EDMERP project ID</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1044,6 +1060,8 @@
     <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/purpose_of_observation">
         <rdfs:subPropertyOf rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/hasStationId"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>a description of the station objectives or long term aim of the monitoring programme</rdfs:comment>
+        <rdfs:label>purpose of observation</rdfs:label>
     </owl:DatatypeProperty>
     
 
