@@ -42,7 +42,7 @@ lazy val metaCore = (project in file("core"))
 			"CountryCode" -> "string",
 		),
 		cpCodeGenSources := {
-			val dir = (Compile / scalaSource).value / "se" / "lu" / "nateko" / "cp" / "meta" / "core" / "data"
+			val dir = (Compile / scalaSource).value / "data"
 			Seq(
 				dir / "GeoFeatures.scala", dir / "TemporalFeatures.scala", dir / "DataItem.scala", dir / "DataObject.scala",
 				dir / "Station.scala", dir / "Instrument.scala", dir / "package.scala"
@@ -125,6 +125,8 @@ lazy val meta = (project in file("."))
 			"com.typesafe.akka"     %% "akka-stream"                        % akkaVersion cross CrossVersion.for3Use2_13,
 			"com.typesafe.akka"     %% "akka-slf4j"                         % akkaVersion cross CrossVersion.for3Use2_13,
 			"ch.qos.logback"         % "logback-classic"                    % "1.4.14",
+			"io.sentry"              % "sentry"                             % "8.37.1",
+			"io.sentry"              % "sentry-logback"                     % "8.37.1",
 			"org.eclipse.rdf4j"      % "rdf4j-repository-sail"              % rdf4jVersion,
 			"org.eclipse.rdf4j"      % "rdf4j-sail-memory"                  % rdf4jVersion,
 			"org.eclipse.rdf4j"      % "rdf4j-sail-nativerdf"               % rdf4jVersion,
@@ -142,7 +144,7 @@ lazy val meta = (project in file("."))
 			"net.sourceforge.owlapi" % "owlapi-parsers"                     % owlApiVersion,
 			"com.sun.mail"           % "jakarta.mail"                       % "1.6.7",
 			"com.esotericsoftware"   % "kryo"                               % "5.6.0",
-			"se.lu.nateko.cp"       %% "views-core"                         % "0.7.19",
+			"se.lu.nateko.cp"       %% "views-core"                         % "0.8.3",
 			"se.lu.nateko.cp"       %% "doi-core"                           % "0.4.5",
 			"com.github.workingDog" %% "scalakml"                           % "1.5"           % "test" exclude("org.scala-lang.modules", "scala-xml_2.13") cross CrossVersion.for3Use2_13,
 			"com.typesafe.akka"     %% "akka-http-testkit"                  % akkaHttpVersion % "test" excludeAll("io.spray") cross CrossVersion.for3Use2_13,
@@ -170,10 +172,14 @@ lazy val meta = (project in file("."))
 		cpDeployPermittedInventories := Some(Seq("production", "staging", "cities")),
 		cpDeployInfraBranch := "master",
 
-		Compile / unmanagedResources ++= {
+		assembly / fullClasspath := {
+			val cp = (assembly / fullClasspath).value
 			val finalJsFile = (uploadgui / Compile / fullOptJS).value.data
-			val mapJsFile = new java.io.File(finalJsFile.getAbsolutePath + ".map")
-			Vector(finalJsFile, mapJsFile)
+			val finalJsMap = new java.io.File(finalJsFile.getAbsolutePath + ".map")
+			val classDir = (Compile / classDirectory).value
+			IO.copyFile(finalJsFile, classDir / finalJsFile.getName)
+			IO.copyFile(finalJsMap, classDir / finalJsMap.getName)
+			cp
 		},
 
 		assembly / assemblyMergeStrategy := {
@@ -232,5 +238,30 @@ lazy val uploadgui = (project in file("uploadgui"))
 			"se.lu.nateko.cp"   %%% "doi-common"        % "0.4.2",
 			"org.scalatest"     %%% "scalatest"         % "3.2.11" % "test",
 			"org.scalacheck"    %%% "scalacheck"        % "1.18.0" % "test"
+		),
+
+		Compile / unmanagedSources ++= {
+			Seq(
+				"core/src/main/scala/crypto/Sha256Sum.scala",
+				"core/src/main/scala/data/GeoFeatures.scala",
+				"core/src/main/scala/data/TemporalFeatures.scala",
+				"core/src/main/scala/data/Envri.scala",
+				"core/src/main/scala/data/GeoFeatures.scala",
+				"core/src/main/scala/data/package.scala",
+				"src/main/scala/OntoConstants.scala",
+				"src/main/scala/UploadDtos.scala",
+			).map(path => new java.io.File(path).getAbsoluteFile)
+		}
+	)
+lazy val tools = (project in file("tools"))
+	.dependsOn(meta)
+	.settings(
+		name := "meta-tools",
+		version := "0.1.0",
+		Compile / unmanagedSourceDirectories ++= Seq(baseDirectory.value / "scripts", baseDirectory.value / "shared"),
+		scalacOptions ++= (commonScalacOptions.filterNot(_ == "-Werror")),
+		excludeDependencies ++= Seq(
+			ExclusionRule("com.github.jsonld-java", "jsonld-java"),
+			ExclusionRule("jakarta.activation", "jakarta.activation-api"),
 		)
 	)
