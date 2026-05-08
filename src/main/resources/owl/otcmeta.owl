@@ -298,7 +298,6 @@
 
     <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/EDMO">
         <owl:equivalentProperty rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/RoR"/>
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/AssumedRole"/>
         <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Funder"/>
         <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Organization"/>
@@ -428,7 +427,7 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Ship"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>final port of call</rdfs:comment>
+        <rdfs:label>final port of call</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -911,14 +910,7 @@
 
     <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/hasSpatialReference">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/DriftingBuoy"/>
-                    <rdf:Description rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/Ship"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
+        <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Platform"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>spatial reference in GeoJSON (any feature except points; encoded as plain string)</rdfs:comment>
         <rdfs:label>spatial reference (GeoJSON)</rdfs:label>
@@ -1060,12 +1052,13 @@
     
 
 
-    <!-- http://meta.icos-cp.eu/ontologies/otcmeta/polygon_GeoJSON -->
+    <!-- http://meta.icos-cp.eu/ontologies/otcmeta/platform_position -->
 
-    <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/polygon_GeoJSON">
-        <rdfs:subPropertyOf rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/hasStationId"/>
+    <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/platform_position">
+        <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Platform"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:label>polygon GeoJSON</rdfs:label>
+        <rdfs:comment>Where on the platform is the sensor?</rdfs:comment>
+        <rdfs:label>platform position</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -1085,7 +1078,7 @@
     <!-- http://meta.icos-cp.eu/ontologies/otcmeta/purpose_of_observation -->
 
     <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/purpose_of_observation">
-        <rdfs:subPropertyOf rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/hasStationId"/>
+        <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Station"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>a description of the station objectives or long term aim of the monitoring programme</rdfs:comment>
         <rdfs:label>purpose of observation</rdfs:label>
