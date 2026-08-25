@@ -316,7 +316,6 @@
     <!-- http://meta.icos-cp.eu/ontologies/otcmeta/EDMO -->
 
     <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/EDMO">
-        <owl:equivalentProperty rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/RoR"/>
         <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Organization"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <rdfs:comment>European Directory of Marine Organisations (EDMO) code for the organization</rdfs:comment>
@@ -337,13 +336,10 @@
     <!-- http://meta.icos-cp.eu/ontologies/otcmeta/RoR -->
 
     <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/RoR">
-        <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/AssumedRole"/>
-        <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Funder"/>
         <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Organization"/>
-        <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Station"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <owl:propertyDisjointWith rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/hasStationId"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">Research Organization Registry (RoR) code for organization name</rdfs:comment>
+        <rdfs:label>RoR</rdfs:label>
     </owl:DatatypeProperty>
     
 
