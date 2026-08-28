@@ -319,6 +319,7 @@
         <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Organization"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
         <rdfs:comment>European Directory of Marine Organisations (EDMO) code for the organization</rdfs:comment>
+        <rdfs:label>EDMO</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -921,6 +922,12 @@
                     <rdf:Description rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/Sensor"/>
                 </owl:unionOf>
             </owl:Class>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/is_an_instance_of_sensor"/>
+                <owl:someValuesFrom rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Sensor_Instance"/>
+            </owl:Restriction>
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:label>serial number</rdfs:label>
