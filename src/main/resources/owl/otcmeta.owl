@@ -155,7 +155,7 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
-        <rdfs:label>owner</rdfs:label>
+        <rdfs:label>owner (organisation or person)</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1091,17 +1091,6 @@
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>IMO or WIGOS ID - whatever is recommended by OceanOPS</rdfs:comment>
         <rdfs:label>mooring code name</rdfs:label>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://meta.icos-cp.eu/ontologies/otcmeta/owner -->
-
-    <owl:DatatypeProperty rdf:about="http://meta.icos-cp.eu/ontologies/otcmeta/owner">
-        <rdfs:domain rdf:resource="http://meta.icos-cp.eu/ontologies/otcmeta/Sensor_Instance"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-        <rdfs:comment>Owner of sensor as organisation (EDMO/RoR) or person (ORCID)/free text</rdfs:comment>
-        <rdfs:label>sensor owner</rdfs:label>
     </owl:DatatypeProperty>
     
 
